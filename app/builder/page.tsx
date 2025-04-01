@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import axios from 'axios';
 
 import { FileNode } from '@webcontainer/api';
@@ -23,9 +23,15 @@ function Component() {
 
 export default Component;`;
 
-const Builder = () => {
+const SearchParamsWrapper = ({ children }: { 
+  children: (props: { prompt: string }) => React.ReactNode 
+}) => {
   const searchparams = useSearchParams();
-  const prompt  = searchparams.get("prompt") || "";
+  const prompt = searchparams.get("prompt") || "";
+  return <>{children({ prompt })}</>;
+};
+
+const BuilderContent = ({ prompt }: { prompt: string }) => {
   const [userPrompt, setPrompt] = useState("");
   const [llmMessages, setLlmMessages] = useState<{role: "user" | "assistant", content: string;}[]>([]);
   const [loading, setLoading] = useState(false);
@@ -37,7 +43,6 @@ const Builder = () => {
   const [selectedFile, setSelectedFile] = useState<FileItem | null>(null);
   
   const [steps, setSteps] = useState<Step[]>([]);
-
   const [files, setFiles] = useState<FileItem[]>([]);
 
   useEffect(() => {
@@ -267,6 +272,16 @@ const Builder = () => {
       </div>
     </div>
   );
-}
+};
+
+const Builder = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SearchParamsWrapper>
+        {(props) => <BuilderContent {...props} />}
+      </SearchParamsWrapper>
+    </Suspense>
+  );
+};
 
 export default Builder;
