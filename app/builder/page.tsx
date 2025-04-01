@@ -277,9 +277,11 @@ const BuilderContent = ({ prompt }: { prompt: string }) => {
 const Builder = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <SearchParamsWrapper>
-        {(props) => <BuilderContent {...props} />}
-      </SearchParamsWrapper>
+      <Suspense fallback={<div>Loading search params...</div>}>
+        <SearchParamsWrapper>
+          {(props) => <BuilderContent {...props} />}
+        </SearchParamsWrapper>
+      </Suspense>
     </Suspense>
   );
 };
