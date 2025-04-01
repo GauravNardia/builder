@@ -18,6 +18,7 @@ export function CodeEditor({ file }: CodeEditorProps) {
   return (
     <Editor
       height="100%"
+      width="100%"
       defaultLanguage="typescript"
       theme="vs-dark"
       value={file.content || ''}

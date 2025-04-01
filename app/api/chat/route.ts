@@ -12,8 +12,9 @@ export async function POST(req: Request){
         model: "gpt-4o",
         instructions: getSystemPrompt(),
         input: messages,
-        max_output_tokens: 8000
+        max_output_tokens: 8000,
     });
+
 
     return new Response(JSON.stringify(stream.output_text), {
         headers: { 'Content-Type': 'application/json' },
