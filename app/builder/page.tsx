@@ -198,17 +198,17 @@ const BuilderContent = ({ prompt }: { prompt: string }) => {
   }, [])
 
   return (
-    <div className="min-h-screen bg-gray-900 flex flex-col">
-      <header className="bg-slatey-800 border-b border-gray-700 px-6 py-4">
+    <div className="w-full min-h-screen bg-neutral-900 flex flex-col">
+      <header className="bg-neutral-900 border-b border-neutral-800 px-6 py-4">
         <h1 className="text-2xl font-semibold text-gray-100">Builder</h1>
-        <p className="text-md text-gray-400 mt-1">Prompt: {prompt}</p>
+        <p className="text-md text-white mt-1">Prompt: {prompt}</p>
       </header>
       
-      <div className="flex-1 overflow-hidden">
-        <div className="h-full grid grid-cols-4 gap-6 p-6">
-          <div className="col-span-1 space-y-6 overflow-auto">
+      <div className="w-full flex overflow-auto">
+        <div className="w-full h-full grid grid-cols-4 gap-6 p-6">
+          <div className="w-full rounded-xl space-y-6 overflow-hidden">
             <div>
-              <div className="  h-screen">
+              <div className=" w-full">
                 <StepsList
                   steps={steps}
                   currentStep={currentStep}
@@ -220,13 +220,13 @@ const BuilderContent = ({ prompt }: { prompt: string }) => {
               </div>
             </div>
           </div>
-          <div className="col-span-1 w-60">
+           <div className="col-span-1 w-60 rounded-xl bg-neutral-900">
               <FileExplorer 
                 files={files} 
                 onFileSelect={setSelectedFile}
               />
             </div>
-          <div className="col-span-2 bg-gray-900 rounded-lg shadow-lg p-3 w-[740px] h-[calc(100vh-8rem)] ">
+          <div className="bg-neutral-900 rounded-lg  p-3 w-[870px] h-[85vh] -ml-30 -mt-5 ">
             <TabView activeTab={activeTab} onTabChange={setActiveTab} />
             <div className="h-[calc(100%-4rem)] w-full">
               {activeTab === 'code' ? (

@@ -35,7 +35,7 @@ export function PreviewFrame({ files, webContainer }: PreviewFrameProps) {
     main()
   }, [])
   return (
-    <div className="h-full flex items-center justify-center text-gray-400">
+    <div className="h-full flex items-center justify-center text-white bg-neutral-800 rounded-lg">
       {!url && <div className="text-center">
         <p className="mb-2">Loading...</p>
       </div>}

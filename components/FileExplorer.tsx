@@ -29,7 +29,7 @@ function FileNode({ item, depth, onFileClick }: FileNodeProps) {
   return (
     <div className="select-none">
       <div
-        className="flex items-center gap-2 p-2 hover:bg-gray-800/50 rounded-md cursor-pointer transition-colors duration-150 group"
+        className="flex items-center gap-2 p-2 px-3 hover:bg-neutral-800 rounded-md cursor-pointer transition-colors duration-150 group"
         style={{ paddingLeft: `${depth * 1.5}rem` }}
         onClick={handleClick}
       >
@@ -67,7 +67,7 @@ function FileNode({ item, depth, onFileClick }: FileNodeProps) {
 
 export function FileExplorer({ files, onFileSelect }: FileExplorerProps) {
   return (
-    <div className="bg-gray-900/95 overflow-auto backdrop-blur-sm rounded-lg shadow-xl border border-gray-800 p-4 h-full overflow-auto">
+    <div className="bg-neutral-900 overflow-auto backdrop-blur-sm rounded-lg shadow-xl border border-neutral-800 p-4 h-[80vh] overflow-auto">
       <h2 className="text-lg font-semibold mb-4 flex items-center gap-2 text-gray-100 border-b border-gray-800 pb-3">
         <FolderTree className="w-5 h-5 text-blue-400" />
         File Explorer

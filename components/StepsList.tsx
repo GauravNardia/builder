@@ -10,9 +10,9 @@ interface StepsListProps {
 
 export function StepsList({ steps, currentStep, onStepClick }: StepsListProps) {
   return (
-    <div className="bg-gray-900 rounded-xl shadow-xl p-4 h-full overflow-auto border border-gray-800 w-[300px] scrollbar-ultrathin scrollbar-thumb-gray-700/50 scrollbar-track-gray-900 hover:scrollbar-thumb-gray-600/50">
-      <h2 className="text-lg font-bold mb-4 text-gray-100 flex items-center gap-2">
-        <span className="bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded-lg text-sm">Build Steps</span>
+    <div className="bg-neutral-900 rounded-xl p-4 h-[80vh] overflow-auto border border-neutral-800 w-[300px]">
+      <h2 className="bg-neutral-900 text-lg font-bold mb-4 text-gray-100 flex items-center gap-2">
+        <span className="bg-neutral-900 text-blue-500 px-2 py-0.5 rounded-lg text-sm">Build Steps</span>
       </h2>
       <div className="space-y-2">
         {steps.map((step) => (
@@ -20,8 +20,8 @@ export function StepsList({ steps, currentStep, onStepClick }: StepsListProps) {
             key={step.id}
             className={`p-3 rounded-lg cursor-pointer transition-all duration-200 ${
               currentStep === step.id
-                ? 'bg-gray-800/50 border-2 border-blue-500/50 shadow-lg shadow-blue-500/10'
-                : 'hover:bg-gray-800/30 border border-gray-800 hover:border-gray-700'
+                ? 'bg-neutal-900 border-2 border-neutral-800 shadow-md shadow-blue-500/10'
+                : 'hover:bg-neutal-900 border border-gray-800 hover:border-gray-700'
             }`}
             onClick={() => onStepClick(step.id)}
           >
@@ -43,7 +43,7 @@ export function StepsList({ steps, currentStep, onStepClick }: StepsListProps) {
               </div>
               <div className="flex-1 min-w-0">
                 <h3 className={`font-medium text-sm truncate ${
-                  currentStep === step.id ? 'text-blue-400' : 'text-gray-100'
+                  currentStep === step.id ? 'text-blue-400' : 'text-white'
                 }`}>
                   {step.title}
                 </h3>
