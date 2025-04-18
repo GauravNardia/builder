@@ -25,6 +25,9 @@ export default function Home() {
       <div className="absolute top-0 w-full h-[300px] bg-gradient-to-br from-blue-600/30 via-transparent to-transparent blur-3xl pointer-events-none" />
 
       {/* Center Content */}
+      <div className=" shadow-lg border bg-white text-black font-semibold px-5 rounded-full border-neutral-800">
+         Removed API KEY, All credit consumed by users
+      </div>
       <div className="text-center max-w-2xl mt-24">
         <h1 className="text-5xl font-bold mb-4">
           What do <span className="text-white">you</span> want to build?
